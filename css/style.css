@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap");
+
+:root {
+    --cor-primaria: #00b4d8;
+    --cor-secundaria: #ffeabf;
+    --cor-texto: #fff;
+    --cor-overlay: rgba(0, 0, 0, 0.55);
+    --font-principal: "Segoe UI", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-principal);
+    background: linear-gradient(to bottom, #a2d4cf, var(--cor-secundaria));
+    color: var(--cor-texto);
+    overflow-x: hidden;
+}
+
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url("https://wallpapercat.com/w/full/1/1/0/172835-1485x2000-mobile-hd-moana-background-image.jpg") no-repeat center center/cover;
+    padding: 1rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.7) 20%,
+            transparent 80%);
+    z-index: 1;
+}
+
+.overlay {
+    position: relative;
+    z-index: 2;
+    background-color: var(--cor-overlay);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: auto;
+    animation: fadeIn 2s ease-in-out;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-family: "Bubblegum Sans", sans-serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+    font-family: "Bubblegum Sans", sans-serif;
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.info {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.emoji {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    display: block;
+}
+
+.contador {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffeabf;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    letter-spacing: 1px;
+    backdrop-filter: blur(2px);
+    text-shadow: 1px 1px 2px #000;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: url("https://viewcosmeticos.com.br/site/wp-content/uploads/2019/10/Banner_Home_Moana2.jpg") repeat-x;
+    animation: wave 12s linear infinite;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wave {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: 1000px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh;
+        align-items: center;
+        justify-content: flex-end;
+        background-position: center bottom;
+        padding-bottom: 3rem;
+    }
+
+    .overlay {
+        margin-top: auto;
+        padding: 2rem 1.2rem;
+        background-color: rgba(0, 0, 0, 0.65);
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    .subtitulo {
+        font-size: 1.5rem;
+    }
+
+    .info {
+        font-size: 1rem;
+    }
+
+    .wave {
+        display: none;
+    }
+}
